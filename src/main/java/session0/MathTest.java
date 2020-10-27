@@ -14,7 +14,7 @@ public class MathTest {
 	Math math;
 	   
 	/**
-	 * Initializes the object to perform tests
+	 * Initializes the object to perform testsssss
 	 */
 	@BeforeClass
 	public static void setup() {
