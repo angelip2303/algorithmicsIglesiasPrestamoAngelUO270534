@@ -1,4 +1,4 @@
-package session0and1;
+package session0;
 
 /**
  * Represents mathematical operations
