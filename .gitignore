@@ -23,6 +23,8 @@
 hs_err_pid*
 
 #Java related files 
+doc/*.*
+doc/*.html
 target/
 .settings/
 .classpath
