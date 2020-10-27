@@ -2,9 +2,9 @@
 Repository for the Algorithmics course at the School of Computer Engineering of the University of Oviedo
 
 ## Information
-**Student**: Vicente García Díaz
+**Student**: Vicente GarcÃ­a DÃ­az
 
-**Year**: 2020
+**Year**: 2021
 
 **Repository URL**: https://github.com/vicegd/algorithmicsGarciaDiazVicenteUO42478
 
