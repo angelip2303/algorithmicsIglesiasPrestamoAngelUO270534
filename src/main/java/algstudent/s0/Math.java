@@ -1,4 +1,4 @@
-package algstudents.s0;
+package algstudent.s0;
 
 /**
  * Represents mathematical operations
