@@ -1,4 +1,4 @@
-package session0;
+package algstudents.s0;
 
 import static org.junit.Assert.assertEquals;
 
