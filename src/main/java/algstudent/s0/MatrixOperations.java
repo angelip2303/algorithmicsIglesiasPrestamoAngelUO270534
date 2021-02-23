@@ -97,6 +97,7 @@ public class MatrixOperations {
 		System.out.println("Number of movements= " + count + "\n");
 	}
 	
+	// This approach is something close the flood-fill algorithm I learned developing a Minesweeper.
 	private int travelPath(int i, int j, int count) {
 		if(i < 0 || j < 0 || i >= matrix.length || j >= matrix[0].length)
 			return count;
