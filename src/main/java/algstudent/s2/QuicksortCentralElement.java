@@ -10,7 +10,7 @@ public class QuicksortCentralElement extends Vector {
 	}
 	
 	private void quickSort(int left, int right) {
-		// TODO: Implement this algorithm
+		int midPoint = (right - left) / 2; // We choose the pivot.
 	}
 
 	@Override
