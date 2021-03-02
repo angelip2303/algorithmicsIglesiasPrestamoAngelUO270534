@@ -10,8 +10,7 @@ public class Selection extends Vector {
 	
 	@Override
 	public void sort() {
-		// TODO: Implement this algorithm
-		int min, tmp = 0;
+		int min;
 		Integer succ;
 		
 		for(int i = 0; i < elements.length; i++) {
@@ -19,14 +18,11 @@ public class Selection extends Vector {
 			
 			for (int j = i; j < elements.length; j++) {
 				succ = (Integer) elements[j];
-				if(succ.compareTo((Integer) min) > 0) min = j; // We store the value at which it is located
+				if(succ.compareTo(elements[min]) < 0) min = j; // We store the value at which it is located
 			}
 			
 			if(min != i) { // Elements must be replaced.
 				Util.interchange(elements, i, min);
-//				tmp = elements[i];
-//				elements[i] = elements[min]; // TODO: verify this works.
-//				elements[min] = tmp;
 			}
 		}
 	}  

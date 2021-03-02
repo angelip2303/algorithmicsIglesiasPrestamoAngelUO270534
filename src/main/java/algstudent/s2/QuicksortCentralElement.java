@@ -8,7 +8,7 @@ public class QuicksortCentralElement extends Vector {
 		super(nElements);
 	}
 	
-	private void quickSort(int left, int right) { // TODO: central element
+	private void quickSort(int left, int right) {
 		if (left >= right)
 			return;
  

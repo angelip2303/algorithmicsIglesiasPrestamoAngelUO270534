@@ -11,25 +11,16 @@ public class Insertion extends Vector {
 
 	@Override
 	public void sort() {
-		// TODO: Implement this algorithm
-		int tmp = 0;
-		Integer actual, pred;
-		
 		for (int i = 1; i < elements.length; i++) {
-			int pointer = i;
-			
-			while (pointer > 0) {
-				actual = (Integer) elements[i];
-				pred = (Integer) elements[pointer];
-				
-				if(actual.compareTo(pred) > 0) break; // It is sorted.
-				
-				tmp = actual;
-				elements[i - pointer] = pred; // TODO: verify this works.
-				elements[pointer] = tmp;
-				
-				pointer--;
-			}
+            int key = elements[i];
+            int j = i - 1;
+            
+            while (j >= 0 && elements[j] > key) {
+            	elements[j + 1] = elements[j];
+                j = j - 1;
+            }
+            
+            elements[j + 1] = key;
 		}
 	} 
 	

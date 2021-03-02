@@ -1,13 +1,5 @@
 package algstudent.s2;
 
-//import labs.en._20.lab2sorting.Bubble; TODO: Remove this
-//import labs.en._20.lab2sorting.Insertion;
-//import labs.en._20.lab2sorting.QuicksortCentralElement;
-//import labs.en._20.lab2sorting.QuicksortFateful;
-//import labs.en._20.lab2sorting.QuicksortMedianOfThree;
-//import labs.en._20.lab2sorting.Selection;
-//import labs.en._20.lab2sorting.Vector;
-
 public class SortingTests {
 
 	/** This program is used to check that sorting algorithms are working

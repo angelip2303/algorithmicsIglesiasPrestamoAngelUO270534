@@ -11,11 +11,10 @@ public class Bubble extends Vector {
 
 	@Override
 	public void sort() {
-		int tmp = 0;
 		Integer actual, pred;
 		
 		for (int i = 1; i < elements.length; i++)  // We iterate over the whole array as many times as needed.
-			for (int j = 1; i < i; j++) { // We iterate over this value and its predecessors.
+			for (int j = elements.length - 1; j >= i; j--) { // We iterate over this value and its predecessors.
 				actual = (Integer) elements[j];
 				pred = (Integer) elements[j - 1];
 				
