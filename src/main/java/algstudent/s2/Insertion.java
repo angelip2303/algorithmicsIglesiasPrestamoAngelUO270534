@@ -27,6 +27,8 @@ public class Insertion extends Vector {
 				tmp = actual;
 				elements[i - pointer] = pred; // TODO: verify this works.
 				elements[pointer] = tmp;
+				
+				pointer--;
 			}
 		}
 	} 

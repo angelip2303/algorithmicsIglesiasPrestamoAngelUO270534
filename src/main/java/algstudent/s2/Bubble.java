@@ -11,7 +11,6 @@ public class Bubble extends Vector {
 
 	@Override
 	public void sort() {
-		// TODO: Implement this algorithm
 		int tmp = 0;
 		Integer actual, pred;
 		
@@ -22,9 +21,7 @@ public class Bubble extends Vector {
 				
 				// If the actual value goes before its predecessor: EXCHANGE.
 				if(actual.compareTo(pred) < 0) { // I'm using this because this way we could implement generics in an easier way.
-					tmp = actual;
-					elements[j] = pred;
-					elements[j - 1] = tmp;
+					Util.interchange(elements, j - 1, j); //A value with its predecessor.
 				}
 		}
 	}  

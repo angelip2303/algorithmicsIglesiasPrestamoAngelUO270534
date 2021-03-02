@@ -23,9 +23,10 @@ public class Selection extends Vector {
 			}
 			
 			if(min != i) { // Elements must be replaced.
-				tmp = elements[i];
-				elements[i] = elements[min]; // TODO: verify this works.
-				elements[min] = tmp;
+				Util.interchange(elements, i, min);
+//				tmp = elements[i];
+//				elements[i] = elements[min]; // TODO: verify this works.
+//				elements[min] = tmp;
 			}
 		}
 	}  
