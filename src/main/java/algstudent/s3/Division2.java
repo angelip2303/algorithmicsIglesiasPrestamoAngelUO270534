@@ -11,7 +11,7 @@ public class Division2 {
 		if (n<=0) cont++;
 		else { 
 			for (int i=1;i<n;i++) 
-				cont++ ;  //O(n)  
+				cont++ ;  //O(n)
 			rec2(n/2);
 			rec2(n/2);
 		}   

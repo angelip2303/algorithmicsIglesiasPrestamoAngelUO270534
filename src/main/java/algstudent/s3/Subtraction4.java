@@ -1,17 +1,26 @@
 package algstudent.s3;
 
-/* Class that models T(n)=2 T(n-1)+O(1) TODO 
- * Params: a=2;b=1;k=0
- * The time complexity is exponential O(2^n) 
- * and the waste of stack is O(n)
- * In this case => the stack does not overflow because 
- * long before the execution time is untreatable 
+/* Params: a=3;b=2;k=0
+ * The time complexity is exponential O(3^(n/2)) 
  */
 public class Subtraction4{
 	
+	/* a --> There will be 3 subproblems.
+	 * b --> All the subproblems have a size of (n - 2).
+	 */
 	public static long rec4(int n) {
-		// TODO Implement.
-		return 0;
+		long cont = 0;
+		if (n<=0) 
+			cont++;
+		else {
+			cont++;  //O(1)    
+			
+			// 3 Recursive calls --> 3 Subproblems.
+			rec4(n - 2); // n - 2 --> According to b.
+			rec4(n - 2);
+			rec4(n - 2);
+		}
+		return cont;  
 	}
 	
 	public static void main(String arg []) {

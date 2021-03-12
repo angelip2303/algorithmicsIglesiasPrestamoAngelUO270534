@@ -1,14 +1,29 @@
 package algstudent.s3;
 
-/* Params: a=2;b=2;k=0 TODO 
- * The time complexity is O(n²) 
- * and the waste of stack is O(log n)
- * Regardless the growth of n => the stack does not overflow 
+/* Params: a=2;b=2;k=2 (2 < 2²)
+ * The time complexity is O(n²)
  */
 public class Division4 {
+	
+	/* a --> There will be 2 subproblems.
+	 * b --> All the subproblems have a size of (n / 2).
+	 * k --> The complexity of the rest of the code (not taking into account the recursive calls) is n².
+	 */
 	public static long rec4 (int n) {
-		// TODO Implement.
-		return 0;
+		long cont = 0;
+		if (n<=0) 
+			cont++;
+		else { 
+			for(int i = 1; i < n; i++) {
+				for(int j = 1; j < n; j++) {
+					cont++;
+				}
+			}
+			
+			rec4(n/2);
+			rec4(n/2);
+		}
+		return cont;   
 	}
 	
 	public static void main (String arg []) {
