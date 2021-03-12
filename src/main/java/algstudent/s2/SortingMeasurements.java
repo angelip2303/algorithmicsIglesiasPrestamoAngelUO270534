@@ -18,16 +18,11 @@ public class SortingMeasurements {
 		System.out.println("Different sizes = " + i);
 		
 		measureTimes(new Insertion(n), it);
-		
-//		measureTimes(new Selection(n), it);
-		
-//		measureTimes(new Bubble(n), it);
-		
-//		measureTimes(new QuicksortFateful(n), it);
-		
-//		measureTimes(new QuicksortCentralElement(n), it);
-		
-//		measureTimes(new QuicksortMedianOfThree(n), it);
+		measureTimes(new Selection(n), it);
+		measureTimes(new Bubble(n), it);
+		measureTimes(new QuicksortFateful(n), it);
+		measureTimes(new QuicksortCentralElement(n), it);
+		measureTimes(new QuicksortMedianOfThree(n), it);
 	}
 	
 	public static void measureTimes(Vector v, int[] iterations) {
