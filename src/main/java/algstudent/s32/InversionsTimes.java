@@ -24,15 +24,25 @@ public class InversionsTimes {
 	        long  t1 = System.currentTimeMillis();
 	        System.out.println("Number of inversions = " + inv1.start());                 				
 	        long  t2 = System.currentTimeMillis();          
-	        if(i>1) System.out.println("The time for the algorithm O(n logn) is: " + (t2-t1) + " milliseconds");
+	        if(i>=1) System.out.println("The time for the algorithm O(n logn) is: " + (t2-t1) + " milliseconds");
 	        
-	
+	        System.out.println();
+	        	
+//	        ranking = readRankingFromFile(fileName);
+//	        InversionsQuadratic inv2 = new InversionsQuadratic(ranking);	
+//	        t1 = System.currentTimeMillis();              
+//	        System.out.println("Number of inversions = " + inv2.start());                 				
+//	        t2 = System.currentTimeMillis();              
+//	        if(i>=1)  System.out.println("The time for the algorithm O(n^2) is: " + (t2-t1) + " milliseconds");
+	        
+	        System.out.println();
+	        
 	        ranking = readRankingFromFile(fileName);
-	        InversionsQuadratic inv2 = new InversionsQuadratic(ranking);	
+	        InversionsParallel inv3 = new InversionsParallel(ranking, 0, ranking.size());	
 	        t1 = System.currentTimeMillis();              
-	        System.out.println("Number of inversions = " + inv2.start());                 				
+	        System.out.println("Number of inversions = " + inv3.start());                 				
 	        t2 = System.currentTimeMillis();              
-	        if(i>1)  System.out.println("The time for the algorithm O(n^2) is: " + (t2-t1) + " milliseconds");
+	        if(i>=1)  System.out.println("The time for the PARALLEL algorithm is: " + (t2-t1) + " milliseconds");
 
 	        System.out.println("\n****************************\n");
 		}	

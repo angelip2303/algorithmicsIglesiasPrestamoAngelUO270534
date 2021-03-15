@@ -11,7 +11,6 @@ public class InversionsQuadratic {
 	}
 
 	public String start() {
-		// TODO Parallelize
 		long count = 0;
 		int element = 0;
 		int n = ranking.size();

@@ -22,19 +22,29 @@ public class InversionsTest {
 		Inversions inv3 = new Inversions(new ArrayList<Integer>(list3));
 		Inversions inv4 = new Inversions(new ArrayList<Integer>(list4));
 		
+		InversionsParallel invParalle1 = new InversionsParallel(new ArrayList<Integer>(list1), 0, list1.size());
+		InversionsParallel invParalle2 = new InversionsParallel(new ArrayList<Integer>(list2), 0, list2.size());
+		InversionsParallel invParalle3 = new InversionsParallel(new ArrayList<Integer>(list3), 0, list3.size());
+		InversionsParallel invParalle4 = new InversionsParallel(new ArrayList<Integer>(list4), 0, list4.size());
+		
 		InversionsQuadratic invQuadratic1 = new InversionsQuadratic(new ArrayList<Integer>(list1));
 		InversionsQuadratic invQuadratic2 = new InversionsQuadratic(new ArrayList<Integer>(list2));
 		InversionsQuadratic invQuadratic3 = new InversionsQuadratic(new ArrayList<Integer>(list3));
 		InversionsQuadratic invQuadratic4 = new InversionsQuadratic(new ArrayList<Integer>(list4));
 		
-		assertEquals("1", inv1.start());
-		assertEquals("0", inv2.start());
-		assertEquals("9", inv3.start());
+		assertEquals("1",  inv1.start());
+		assertEquals("0",  inv2.start());
+		assertEquals("9",  inv3.start());
 		assertEquals("30", inv4.start());
 		
-		assertEquals("1", invQuadratic1.start());
-		assertEquals("0", invQuadratic2.start());
-		assertEquals("9", invQuadratic3.start());
+		assertEquals("1",  invParalle1.start()); 
+		assertEquals("0",  invParalle2.start());
+		assertEquals("9",  invParalle3.start());
+		assertEquals("30", invParalle4.start());
+		
+		assertEquals("1",  invQuadratic1.start());
+		assertEquals("0",  invQuadratic2.start());
+		assertEquals("9",  invQuadratic3.start());
 		assertEquals("30", invQuadratic4.start());
 	}
 
