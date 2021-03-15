@@ -1,6 +1,6 @@
 package algstudent.s3;
 
-/* Params: a=2;b=2;k=2 (2 < 2²)
+/* Params: a=4;b=3;k=2 (4 < 3²) --> 4 < 9 --> O(n^k)
  * The time complexity is O(n²)
  */
 public class Division4 {
@@ -20,8 +20,10 @@ public class Division4 {
 				}
 			}
 			
-			rec4(n/2);
-			rec4(n/2);
+			rec4(n/3);
+			rec4(n/3);
+			rec4(n/3);
+			rec4(n/3);
 		}
 		return cont;   
 	}
