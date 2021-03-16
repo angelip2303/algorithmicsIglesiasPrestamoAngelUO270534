@@ -28,12 +28,12 @@ public class InversionsTimes {
 	        
 	        System.out.println();
 	        	
-//	        ranking = readRankingFromFile(fileName);
-//	        InversionsQuadratic inv2 = new InversionsQuadratic(ranking);	
-//	        t1 = System.currentTimeMillis();              
-//	        System.out.println("Number of inversions = " + inv2.start());                 				
-//	        t2 = System.currentTimeMillis();              
-//	        if(i>=1)  System.out.println("The time for the algorithm O(n^2) is: " + (t2-t1) + " milliseconds");
+	        ranking = readRankingFromFile(fileName);
+	        InversionsQuadratic inv2 = new InversionsQuadratic(ranking);	
+	        t1 = System.currentTimeMillis();              
+	        System.out.println("Number of inversions = " + inv2.start());                 				
+	        t2 = System.currentTimeMillis();              
+	        if(i>=1)  System.out.println("The time for the algorithm O(n^2) is: " + (t2-t1) + " milliseconds");
 	        
 	        System.out.println();
 	        

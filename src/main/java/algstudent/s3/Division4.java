@@ -20,10 +20,10 @@ public class Division4 {
 				}
 			}
 			
-			rec4(n/3);
-			rec4(n/3);
-			rec4(n/3);
-			rec4(n/3);
+			rec4(n/4);
+			rec4(n/4);
+			rec4(n/4);
+			rec4(n/4);
 		}
 		return cont;   
 	}
