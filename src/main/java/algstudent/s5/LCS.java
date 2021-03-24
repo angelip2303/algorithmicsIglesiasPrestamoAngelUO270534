@@ -37,7 +37,7 @@ public class LCS {
 		size1 = str1.length();
 		size2 = str2.length();
 		result = "";
-		table = new CellTable[size1][size2]; // table used for dynamic programming para guardar todos los valores de la tabla dinámica 
+		table = new CellTable[size1][size2]; // table used for dynamic programming para guardar todos los valores de la tabla dinï¿½mica 
 	}
 	
 	/**
@@ -63,7 +63,6 @@ public class LCS {
 				table[i][j] = new CellTable();
 	}
 	
-	
 	/**
 	 * Print the table with the results
 	 */
@@ -80,7 +79,6 @@ public class LCS {
 			System.out.println();
 		}
 	}
-	
 	
 	/**
 	 * Print current MSC result
@@ -100,13 +98,50 @@ public class LCS {
 	 */
 	public void fillTable(){
 		// TODO: fill dynamic programming table with a cell (value, iPrev and jPrev) for each entry
+		char[] str1AsArray = str1.toCharArray();
+		char[] str2AsArray = str2.toCharArray();
+		
+		int maxLength = Integer.max(table.length, table[0].length);
+		
+		char rowPointer, colPointer;
+		int aboveCell, leftCell, cellToCompare;
+		
+		for(int i = 0; i < maxLength; i++) {
+			if(i < table.length) {
+				table[i][0].value = 0;
+				table[i][0].iPrev = 0;
+				table[i][0].jPrev = 0;
+			}
+
+			if(i < table[0].length) {
+				table[0][i].value = 0;
+				table[0][i].iPrev = 0;
+				table[0][i].jPrev = 0;
+			}
+		}
+		
+		for(int i = 1; i < table.length; i++) {
+			rowPointer = str1AsArray[i];
+			
+			for(int j = 1; j < table[0].length; j++) {
+				colPointer = str2AsArray[j];
+				
+				leftCell  = table[i][j - 1].value;
+				aboveCell = table[i - 1][j].value;
+				cellToCompare = rowPointer == colPointer ? table[i - 1][j - 1].value + 1 : table[i - 1][j - 1].value;
+				
+				table[i][j].value = Integer.max(cellToCompare, Integer.max(leftCell, aboveCell));
+				table[i][j].iPrev = rowPointer == colPointer || table[i][j].value == table[i - 1][j].value ? i - 1 : i;
+				table[i][j].jPrev = rowPointer == colPointer || table[i][j].value == table[i][j - 1].value ? j - 1 : j;
+			}
+		}
 	}
 	
 	/**
 	 * Get the index for the maximum of three numbers
-	 * @param num1 e.g. input L1=MSC(S1’, S2). S1’ S1 without its last char
+	 * @param num1 e.g. input L1=MSC(S1', S2). S1' S1 without its last char
 	 * @param num2 e.g. input L1=MSC(S1, S2'). S2' S2 without its last char
-	 * @param num3 e.g. input L3=MSC(S1’, S2’) or L3+1 when both current chars are equal
+	 * @param num3 e.g. input L3=MSC(S1', S2') or L3+1 when both current chars are equal
 	 * @return index of maximum
 	 */
 	@SuppressWarnings("unused")
