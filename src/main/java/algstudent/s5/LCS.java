@@ -97,57 +97,37 @@ public class LCS {
 	 * Fill table values for dynamic programming
 	 */
 	public void fillTable(){
-		// TODO: fill dynamic programming table with a cell (value, iPrev and jPrev) for each entry
 		char[] str1AsArray = str1.toCharArray();
 		char[] str2AsArray = str2.toCharArray();
 		
-		int maxLength = Integer.max(table.length, table[0].length);
-		
 		char rowPointer, colPointer;
 		int aboveCell, leftCell, cellToCompare;
-		
-		for(int i = 0; i < maxLength; i++) {
-			if(i < table.length) {
-				table[i][0].value = 0;
-				table[i][0].iPrev = 0;
-				table[i][0].jPrev = 0;
-			}
-
-			if(i < table[0].length) {
-				table[0][i].value = 0;
-				table[0][i].iPrev = 0;
-				table[0][i].jPrev = 0;
-			}
-		}
 		
 		for(int i = 1; i < table.length; i++) {
 			rowPointer = str1AsArray[i];
 			
 			for(int j = 1; j < table[0].length; j++) {
-				colPointer = str2AsArray[j];
-				
-				leftCell  = table[i][j - 1].value;
-				aboveCell = table[i - 1][j].value;
-				cellToCompare = rowPointer == colPointer ? table[i - 1][j - 1].value + 1 : table[i - 1][j - 1].value;
-				
-				table[i][j].value = Integer.max(cellToCompare, Integer.max(leftCell, aboveCell));
-				table[i][j].iPrev = rowPointer == colPointer || table[i][j].value == table[i - 1][j].value ? i - 1 : i;
-				table[i][j].jPrev = rowPointer == colPointer || table[i][j].value == table[i][j - 1].value ? j - 1 : j;
+				if(i == 0 || j == 0) {
+					table[0][i].value = 0;
+					table[0][i].iPrev = 0;
+					table[0][i].jPrev = 0;
+				}else if (str1AsArray[i] == str2AsArray[j]) {
+					table[i][j].value = table[i - 1][j - 1].value + 1;
+					table[i][j].iPrev = i - 1;
+					table[i][j].jPrev = j - 1;
+				}else {
+					colPointer = str2AsArray[j];
+					
+					leftCell  = table[i][j - 1].value;
+					aboveCell = table[i - 1][j].value;
+					cellToCompare = rowPointer == colPointer ? table[i - 1][j - 1].value + 1 : table[i - 1][j - 1].value;
+					
+					table[i][j].value = Integer.max(cellToCompare, Integer.max(leftCell, aboveCell));
+					table[i][j].iPrev = rowPointer == colPointer || table[i][j].value == table[i - 1][j].value ? i - 1 : i;
+					table[i][j].jPrev = rowPointer == colPointer || table[i][j].value == table[i][j - 1].value ? j - 1 : j;
+				}
 			}
 		}
-	}
-	
-	/**
-	 * Get the index for the maximum of three numbers
-	 * @param num1 e.g. input L1=MSC(S1', S2). S1' S1 without its last char
-	 * @param num2 e.g. input L1=MSC(S1, S2'). S2' S2 without its last char
-	 * @param num3 e.g. input L3=MSC(S1', S2') or L3+1 when both current chars are equal
-	 * @return index of maximum
-	 */
-	@SuppressWarnings("unused")
-	private int longest(int num1, int num2, int num3) {
-		return -1;
-		// TODO (optional): from three different values (e.g. partial MSC lengths) gets index for the longest
 	}
 	
 	/**
@@ -155,7 +135,30 @@ public class LCS {
 	 * @param v if True verbose mode activated (To show the path trough the different cells)
 	 */
 	public void findLongestSubseq(boolean v){
-		// TODO: After the table is filled, from table last element traces the MSC found
+		int i = table.length - 1;
+		int j = table[0].length - 1;
+		int index = table[i][j].value;
+		
+		char[] str1AsArray = str1.toCharArray();
+		char[] str2AsArray = str2.toCharArray();
+		
+		char[] lcs = new char[i + 1];
+		
+		while(i > 0 && j > 0) {
+			if (str1AsArray[i] == str2AsArray[j]) {
+				lcs[index--] = str1AsArray[i--];
+				
+				// Decrease the value of j which is the last not found.
+                j--;
+			}
+			else if (table[i - 1][j].value > table[i][j - 1].value)
+                i--;
+            else
+                j--;
+		}
+		
+		for(int k = 0; k < lcs.length; k++)
+			if(lcs[k] != '\u0000') result += lcs[k];
 	}
 
 }

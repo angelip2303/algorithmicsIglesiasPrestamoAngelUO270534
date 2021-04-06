@@ -26,6 +26,7 @@ public class LCSTest {
 		LCSRec lcsrec = new LCSRec();
 		System.out.println("Finding longest subsequence...");
 		String seq_rec = lcsrec.findLongestSubseq(str1, str2);
+		System.out.println("Printing longest subsequence...");
 		System.out.println(seq_rec);
 		
 		System.out.println("Program terminated.");

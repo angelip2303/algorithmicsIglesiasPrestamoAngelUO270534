@@ -22,21 +22,25 @@ public class LCSRec {
 	 * Find a MSC directly by a recursive approach 
 	 */
 	public String findLongestSubseq(String s1, String s2){
-		return ""; 
-		// TODO: find directly a MSC (whitout a table) of two input sequences using recursion  
-	}
-	
-	/**
-	 * Get the index for the longest of three strings
-	 * @param l1 e.g. input L1=MSC(S1’, S2). S1’ S1 without its last char
-	 * @param l2 e.g. input L1=MSC(S1, S2'). S2' S2 without its last char
-	 * @param l3 e.g. input L3=MSC(S1’, S2’) or L3+1 when both current chars are equal
-	 * @return index of the longest string
-	 */
-	@SuppressWarnings("unused")
-	private int longest(String l1, String l2, String l3) {
-		return -1;
-		// TODO (optional): from three different sequences (e.g. subsequences) gets index for the longest
+		int s1Length = s1.length() - 1;
+		int s2Length = s2.length() - 1;
+		
+		if(s1Length < 0 || s2Length < 0) {
+			return ""; 
+		}
+		
+		if(s1.substring(s1Length).equals(s2.substring(s2Length))) {
+			return findLongestSubseq(s1.substring(0, s1Length), s2.substring(0, s2Length)) + s1.substring(s1Length);
+		} else {
+			String first = findLongestSubseq(s1, s2.substring(0, s2Length));
+	        String second = findLongestSubseq(s1.substring(0, s1Length), s2);
+	        
+	        if(first.length() > second.length()){
+	            return first;
+	        }
+	        
+	        return second;
+		}
 	}
 
 }
