@@ -142,7 +142,7 @@ public class LCS {
 		char[] str1AsArray = str1.toCharArray();
 		char[] str2AsArray = str2.toCharArray();
 		
-		char[] lcs = new char[i + 1];
+		char[] lcs = new char[Integer.max(i, j) + 1];
 		
 		while(i > 0 && j > 0) {
 			if (str1AsArray[i] == str2AsArray[j]) {
