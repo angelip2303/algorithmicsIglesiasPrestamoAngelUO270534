@@ -170,6 +170,10 @@ public class BestList {
 	
 	// -*- BACKTRACKING -*-
 	
+	/* Implementation of the Backtracking solution.
+	 * 
+	 * @param level --> depth in the songs list.
+	 */
 	public void backtracking(int level) {
 		if(level == totalNumberOfSongs) { // BASE CASE.
 			// POSTCONDITIONS: -ea argument in VM --> you can delete it if you want.
