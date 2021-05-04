@@ -5,6 +5,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Stream;
 
+import algstudent.s7.util.Song;
+
 public class BestList {
 
 //	+-------------------------+
@@ -25,7 +27,7 @@ public class BestList {
 	private List<Song> pl1BestList;
 	private List<Song> pl2BestList;
 	
-	private int maxDurationOfPlayList;
+	private double maxDurationOfPlayList;
 	private int totalNumberOfSongs;
 	
 	private int counter = 0;
@@ -35,12 +37,17 @@ public class BestList {
 //	|    -*- CONSTRUCTOR -*-    |
 //	+---------------------------+
 	
-	public BestList(String fileName, int maxDurationOfPlayList) {
+	public BestList(String fileName, double maxDurationOfPlayList) {
 		List<String> lines = Util.read(FILE_NAME + fileName);
 		this.songs = Util.parse(lines);
 		
 		this.maxDurationOfPlayList = maxDurationOfPlayList  * 60; 
 		this.totalNumberOfSongs = songs.size();
+	}
+	
+	public BestList(List<Song> songs) {
+		this.songs = songs;
+		maxDurationOfPlayList = 0.4 * getDurationOfPlaylist(songs);
 	}
 	
 //	+----------------------------+
@@ -68,7 +75,7 @@ public class BestList {
 			System.out.println(song.toString());
 		}
 		
-		System.out.println(String.format("\nLength of the blocks: %d", maxDurationOfPlayList / 60));
+		System.out.println(String.format("\nLength of the blocks: %f", maxDurationOfPlayList / 60));
 		System.out.println(String.format("Total score: %d", totalScore));
 		System.out.println(String.format("Total counter: %d", counter));
 		
@@ -144,7 +151,7 @@ public class BestList {
 			
 			saveSolution();
 		}else {
-			int nextSongFit = maxDurationOfPlayList - songs.get(level).getTime();
+			double nextSongFit = maxDurationOfPlayList - songs.get(level).getTime();
 			boolean nextSongFitA = getDurationOfPlaylist(blockA) < nextSongFit;
 			boolean nextSongFitB = getDurationOfPlaylist(blockB) < nextSongFit;
 			

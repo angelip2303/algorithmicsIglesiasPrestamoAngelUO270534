@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import algstudent.s7.util.Song;
+
 public class Util {
 	
 	public static List<String> read(String fileName) {
