@@ -1,4 +1,4 @@
-package algstudent.s6;
+package algstudent.s7.util;
 
 public class Song {
 
