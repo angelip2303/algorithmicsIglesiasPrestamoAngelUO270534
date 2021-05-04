@@ -13,6 +13,7 @@ public class BestListBranchAndBoundTimes {
 //	+-------------------------+
 	
 	private static final int[] SIZES = new int[]{25, 50, 100, 200, 400};
+	private static final int N_TIMES = 1000000;
 	
 //	+----------------------------+
 //	|    -*- MAIN METHODS -*-    |
@@ -31,7 +32,8 @@ public class BestListBranchAndBoundTimes {
 	        
 	        // We are going to compute the best list
 	        t1 = System.currentTimeMillis();
-        	blBNB.branchAndBound(blBNB.getRootNode());
+//	        for(int j = 0; j < N_TIMES; j++)
+	        	blBNB.branchAndBound(blBNB.getRootNode());
 	        t2 = System.currentTimeMillis();
 	        
 	        System.out.printf("SIZE: %d - The time for the Branch & Bound algorithm is: %d milliseconds%n", SIZES[i], (t2 - t1));
@@ -47,7 +49,8 @@ public class BestListBranchAndBoundTimes {
 	        
 	        // We are going to compute the best list
 	        t1 = System.currentTimeMillis();
-        	bl2.backtracking(0);
+	        for(int j = 0; j < N_TIMES; j++)
+	        	bl2.backtracking(0);
 	        t2 = System.currentTimeMillis();
 	        
 	        System.out.printf("SIZE: %d - The time for the Backtracking algorithm is: %d milliseconds%n", SIZES[i], (t2 - t1));
@@ -68,13 +71,13 @@ public class BestListBranchAndBoundTimes {
         Random rand = new Random();
         
         for (int i=0; i<n; i++) {
-            do
+            do {
             	t_secs = (int) (rand.nextGaussian() * 120 + 60);
-            while (t_secs < 30);
+            }while (t_secs < 30);
 
-            do
+            do {
             	score = (int) (rand.nextGaussian() * 2000 + 1000);
-            while (score < 300);
+            }while (score < 300);
 
             songs.add(new Song(String.valueOf(i), t_secs, score));
         }
